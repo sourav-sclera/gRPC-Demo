@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_package = "com.example.inventory.grpc";
+option java_multiple_files = true;
+
+package inventory;
+
+// Generic request/response for flexibility
+import "google/protobuf/struct.proto";
+
+service InventoryService {
+  rpc CreateItem (UniversalRequest) returns (UniversalResponse);
+  rpc GetAllItems(UniversalRequest) returns (UniversalListResponse);
+  rpc GetItemById (UniversalRequest) returns (UniversalResponse);
+  rpc DeleteItem (UniversalRequest) returns (UniversalResponse);
+}
+
+service OrderService {
+  rpc CreateOrder (UniversalRequest) returns (UniversalResponse);
+  rpc GetAllOrders (UniversalRequest) returns (UniversalListResponse);
+  rpc GetOrderById (UniversalRequest) returns (UniversalResponse);
+  rpc DeleteOrder (UniversalRequest) returns (UniversalResponse);
+}
+message UniversalRequest {
+  google.protobuf.Struct payload = 1; // JSON-like dynamic data
+  map<string, string> params = 2;     // Query/form params
+  bytes file = 3;                     // Single file bytes
+  repeated bytes files = 4;           // Multiple files
+}
+
+message UniversalResponse {
+  string status = 1;
+  string message = 2;
+  google.protobuf.Struct data = 3;
+}
+
+message UniversalListResponse {
+  repeated google.protobuf.Struct items = 1;
+  int32 total_count = 2;
+  string status = 4;
+  string message = 5;
+}

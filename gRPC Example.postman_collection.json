@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "c053b723-663a-4d36-b15e-1b04aa7aec64",
+		"name": "gRPC Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40483734"
+	},
+	"item": [
+		{
+			"name": "Inventory Service",
+			"item": [
+				{
+					"name": "add-item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Laptop\",\r\n  \"description\": \"High-performance gaming laptop\",\r\n  \"price\": 52999.99,\r\n  \"imageUrl\": \"https://example.com/images/laptop.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9092/api/item/add-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"api",
+								"item",
+								"add-item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Laptop r56\",\r\n  \"description\": \"High-performance gaming laptop\",\r\n  \"price\": 52999.99,\r\n  \"imageUrl\": \"https://example.com/images/laptop.jpg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9092/api/item/add-item",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"api",
+										"item",
+										"add-item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Nov 2025 06:00:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Item created successfully\",\n    \"data\": {\n        \"id\": \"3d862aa3-6334-43e5-8446-91c07ef14682\",\n        \"name\": \"Laptop r56\",\n        \"description\": \"High-performance gaming laptop\",\n        \"price\": 52999.99,\n        \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/api/item/get-all-items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"api",
+								"item",
+								"get-all-items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9092/api/item/get-all-items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"api",
+										"item",
+										"get-all-items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Nov 2025 06:00:35 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Items retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"05483491-40b1-48dd-814d-4435852e867f\",\n            \"name\": \"Laptop xPS\",\n            \"description\": \"High-performance gaming laptop\",\n            \"price\": 52999.99,\n            \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n        },\n        {\n            \"id\": \"3d862aa3-6334-43e5-8446-91c07ef14682\",\n            \"name\": \"Laptop r56\",\n            \"description\": \"High-performance gaming laptop\",\n            \"price\": 52999.99,\n            \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n        },\n        {\n            \"id\": \"19a9636a-5e04-4ba6-ac25-d924abb9c100\",\n            \"name\": \"Laptop\",\n            \"description\": \"High-performance gaming laptop\",\n            \"price\": 52999.99,\n            \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get-item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/api/item/05483491-40b1-48dd-814d-4435852e867f/get-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"api",
+								"item",
+								"05483491-40b1-48dd-814d-4435852e867f",
+								"get-item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9092/api/item/05483491-40b1-48dd-814d-4435852e867f/get-item",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"api",
+										"item",
+										"05483491-40b1-48dd-814d-4435852e867f",
+										"get-item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Nov 2025 06:01:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Item retrieved successfully\",\n    \"data\": {\n        \"id\": \"05483491-40b1-48dd-814d-4435852e867f\",\n        \"name\": \"Laptop xPS\",\n        \"description\": \"High-performance gaming laptop\",\n        \"price\": 52999.99,\n        \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"3d862aa3-6334-43e5-8446-91c07ef14682\",\r\n    \"19a9636a-5e04-4ba6-ac25-d924abb9c100\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9092/api/item/delete-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"api",
+								"item",
+								"delete-item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"3d862aa3-6334-43e5-8446-91c07ef14682\",\r\n    \"19a9636a-5e04-4ba6-ac25-d924abb9c100\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9092/api/item/delete-item",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"api",
+										"item",
+										"delete-item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Nov 2025 06:03:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Item deleted successfully\",\n    \"data\": {\n        \"id\": null,\n        \"name\": null,\n        \"description\": null,\n        \"price\": null,\n        \"imageUrl\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order Service",
+			"item": [
+				{
+					"name": "create-order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemId\": \"87383c67-7304-4e01-9aef-b899b00f933c\",\r\n    \"itemName\": \"Laptop r56\",\r\n    \"itemPrice\": 52999.99,\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/order/create-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"order",
+								"create-order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"itemId\": \"21d80dc4-4dd2-4899-b058-4914a78cd4b1\",\r\n    \"itemName\": \"Laptop r56\",\r\n    \"itemPrice\": 52999.99,\r\n    \"quantity\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/order/create-order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"order",
+										"create-order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Nov 2025 05:48:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Order created successfully\",\n    \"data\": {\n        \"id\": \"d33ad8e6-12b9-44cc-8e07-6464d78d932e\",\n        \"itemId\": \"21d80dc4-4dd2-4899-b058-4914a78cd4b1\",\n        \"itemName\": \"Laptop r56\",\n        \"itemPrice\": 52999.99,\n        \"quantity\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/order/get-all-orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"order",
+								"get-all-orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/order/get-all-orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"order",
+										"get-all-orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Nov 2025 05:49:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Orders retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"d33ad8e6-12b9-44cc-8e07-6464d78d932e\",\n            \"itemId\": \"21d80dc4-4dd2-4899-b058-4914a78cd4b1\",\n            \"itemName\": \"Laptop r56\",\n            \"itemPrice\": 52999.99,\n            \"quantity\": 2\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get-order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/order/d33ad8e6-12b9-44cc-8e07-6464d78d932e/get-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"order",
+								"d33ad8e6-12b9-44cc-8e07-6464d78d932e",
+								"get-order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/order/d33ad8e6-12b9-44cc-8e07-6464d78d932e/get-order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"order",
+										"d33ad8e6-12b9-44cc-8e07-6464d78d932e",
+										"get-order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Nov 2025 05:50:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Order retrieved successfully\",\n    \"data\": {\n        \"id\": \"d33ad8e6-12b9-44cc-8e07-6464d78d932e\",\n        \"itemId\": \"21d80dc4-4dd2-4899-b058-4914a78cd4b1\",\n        \"itemName\": \"Laptop r56\",\n        \"itemPrice\": 52999.99,\n        \"quantity\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"d33ad8e6-12b9-44cc-8e07-6464d78d932e\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/order/delete-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"order",
+								"delete-order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"d33ad8e6-12b9-44cc-8e07-6464d78d932e\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/order/delete-order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"order",
+										"delete-order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Nov 2025 05:51:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Order deleted successfully\",\n    \"data\": {\n        \"id\": null,\n        \"itemId\": null,\n        \"itemName\": null,\n        \"itemPrice\": null,\n        \"quantity\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
