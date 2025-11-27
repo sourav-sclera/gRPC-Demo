@@ -12,5 +12,5 @@ mvn clean install -U
 
 ## Usage
 
-Use the provided Postman Collection to test the gRPC endpoints.
+Use the provided Postman Collection to test the gRPC in action.
 
