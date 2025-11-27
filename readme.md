@@ -6,7 +6,7 @@ A simple demo project showcasing how to integrate gRPC with Spring Boot.
 Build the shared proto module:
 
 ```bash
-cd inventory-proro
+cd inventory-proto
 mvn clean install -U 
 ```
 
